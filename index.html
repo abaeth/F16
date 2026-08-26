@@ -6,15 +6,20 @@
   
   <title>แอ๊บแอ้</title>
 
+  <!-- 🇹🇭 แก้จุดนี้: เพิ่ม Open Graph ให้ Share Sheet บน iOS อ่านค่าเป็นภาษาไทย -->
+  <meta property="og:title" content="แอ๊บแอ้">
+  <meta property="og:site_name" content="แอ๊บแอ้">
+  <meta name="title" content="แอ๊บแอ้">
+
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   
-  <!-- 🍎 ตั้งชื่อภาษาไทยสำหรับ iOS (iPhone/iPad) -->
+  <!-- 🍎 ชื่อไอคอนเวลาเพิ่มลงหน้าจอโฮมบน iOS -->
   <meta name="apple-mobile-web-app-title" content="แอ๊บแอ้">
   
   <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2800/2800258.png">
 
-  <!-- 🤖 ตั้งชื่อภาษาไทยสำหรับ Android (Chrome) -->
+  <!-- 🤖 Manifest สำหรับ Android -->
   <link rel="manifest" href='data:application/manifest+json,{"name":"แอ๊บแอ้","short_name":"แอ๊บแอ้","start_url":".","display":"standalone","background_color":"#f5f5f7","theme_color":"#f5f5f7"}'>
 
   <style>
@@ -25,7 +30,6 @@
 <body>
   <iframe id="app-frame" allow="fullscreen"></iframe>
   <script>
-    // บังคับล็อคชื่อ Title บนเบราว์เซอร์ให้เป็นภาษาไทย
     document.title = "แอ๊บแอ้";
     setInterval(function() { document.title = "แอ๊บแอ้"; }, 1000);
 
