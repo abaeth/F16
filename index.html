@@ -4,16 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   
-  <!-- เปลี่ยนชื่อ Title หน้าเว็บ -->
+  <!-- เปลี่ยนชื่อ Title ตรงแท็บเบราว์เซอร์ -->
   <title>AB-AE</title>
   
-  <!-- ตั้งค่าสำหรับ iOS (Safari) -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="AB-AE">
   <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2800/2800258.png">
 
-  <!-- ตั้งค่าสำหรับ Android (Chrome) บังคับชื่อ AB-AE -->
+  <!-- Manifest บังคับชื่อเวลาติดตั้งลงเครื่อง -->
   <link rel="manifest" href='data:application/manifest+json,{"name":"AB-AE","short_name":"AB-AE","start_url":".","display":"standalone","background_color":"#f5f5f7","theme_color":"#f5f5f7"}'>
 
   <style>
@@ -26,13 +25,11 @@
   <script>
     const GAS_URL = "https://script.google.com/macros/s/AKfycbyVZp09oHsU62CZvJVBBeEnOLtQrW3t8Ngxe3IFG-T90_AhoM-0UixTUW3dgmBSRdI1/exec"; 
 
-    // ดึงความจำจากตู้เซฟ GitHub
     let savedBranch = localStorage.getItem('hub_branch') || '';
     let savedShop = localStorage.getItem('hub_shop') || '';
     let savedStaff = localStorage.getItem('hub_staff') || '';
     let savedReg = localStorage.getItem('hub_reg') || '';
 
-    // แนบความจำส่งให้ Google
     let finalUrl = GAS_URL + "?v=" + Date.now();
     if (savedBranch) finalUrl += "&branch=" + encodeURIComponent(savedBranch);
     if (savedShop) finalUrl += "&shop=" + encodeURIComponent(savedShop);
@@ -41,7 +38,6 @@
 
     document.getElementById('app-frame').src = finalUrl;
 
-    // รับคำสั่งเซฟความจำจาก Google
     window.addEventListener('message', function(event) {
       if (event.data) {
         if (event.data.action === 'save_all') {
