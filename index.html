@@ -6,7 +6,7 @@
   
   <title>แอ๊บแอ้</title>
 
-  <!-- 🇹🇭 แก้จุดนี้: เพิ่ม Open Graph ให้ Share Sheet บน iOS อ่านค่าเป็นภาษาไทย -->
+  <!-- Open Graph สำหรับ Share Sheet และการแสดงผลแชร์ลิงก์ -->
   <meta property="og:title" content="แอ๊บแอ้">
   <meta property="og:site_name" content="แอ๊บแอ้">
   <meta name="title" content="แอ๊บแอ้">
@@ -17,10 +17,12 @@
   <!-- 🍎 ชื่อไอคอนเวลาเพิ่มลงหน้าจอโฮมบน iOS -->
   <meta name="apple-mobile-web-app-title" content="แอ๊บแอ้">
   
-  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2800/2800258.png">
+  <!-- 🌈 1. โลโก้สายรุ้ง Gen Z / LGBT แบบพาสเทล สำหรับ iOS (Apple Touch Icon) -->
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='bg' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23ff007f'/><stop offset='20%' stop-color='%23ff758c'/><stop offset='40%' stop-color='%23ff7eb3'/><stop offset='70%' stop-color='%237afcff'/><stop offset='100%' stop-color='%23feff9c'/></linearGradient></defs><rect width='512' height='512' rx='120' fill='url(%23bg)'/><g transform='translate(0, 20)'><path d='M 128 340 A 128 128 0 0 1 384 340' fill='none' stroke='%23ffffff' stroke-width='24' stroke-linecap='round' opacity='0.95'/><path d='M 160 340 A 96 96 0 0 1 352 340' fill='none' stroke='%23ffffff' stroke-width='24' stroke-linecap='round' opacity='0.85'/><path d='M 192 340 A 64 64 0 0 1 320 340' fill='none' stroke='%23ffffff' stroke-width='24' stroke-linecap='round' opacity='0.75'/></g></svg>">
 
-  <!-- 🤖 Manifest สำหรับ Android -->
-  <link rel="manifest" href='data:application/manifest+json,{"name":"แอ๊บแอ้","short_name":"แอ๊บแอ้","start_url":".","display":"standalone","background_color":"#f5f5f7","theme_color":"#f5f5f7"}'>
+  <!-- 🤖 2. Manifest & Favicon สไตล์ Gen Z / LGBT สำหรับ Android -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='bg' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23ff007f'/><stop offset='20%' stop-color='%23ff758c'/><stop offset='40%' stop-color='%23ff7eb3'/><stop offset='70%' stop-color='%237afcff'/><stop offset='100%' stop-color='%23feff9c'/></linearGradient></defs><rect width='512' height='512' rx='120' fill='url(%23bg)'/><g transform='translate(0, 20)'><path d='M 128 340 A 128 128 0 0 1 384 340' fill='none' stroke='%23ffffff' stroke-width='24' stroke-linecap='round' opacity='0.95'/><path d='M 160 340 A 96 96 0 0 1 352 340' fill='none' stroke='%23ffffff' stroke-width='24' stroke-linecap='round' opacity='0.85'/><path d='M 192 340 A 64 64 0 0 1 320 340' fill='none' stroke='%23ffffff' stroke-width='24' stroke-linecap='round' opacity='0.75'/></g></svg>">
+  <link rel="manifest" href='data:application/manifest+json,{"name":"แอ๊บแอ้","short_name":"แอ๊บแอ้","start_url":".","display":"standalone","background_color":"#f5f5f7","theme_color":"#ff007f","icons":[{"src":"data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><defs><linearGradient id=\"bg\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"%23ff007f\"/><stop offset=\"20%\" stop-color=\"%23ff758c\"/><stop offset=\"40%\" stop-color=\"%23ff7eb3\"/><stop offset=\"70%\" stop-color=\"%237afcff\"/><stop offset=\"100%\" stop-color=\"%23feff9c\"/></linearGradient></defs><rect width=\"512\" height=\"512\" rx=\"120\" fill=\"url(%23bg)\"/><g transform=\"translate(0, 20)\"><path d=\"M 128 340 A 128 128 0 0 1 384 340\" fill=\"none\" stroke=\"%23ffffff\" stroke-width=\"24\" stroke-linecap=\"round\" opacity=\"0.95\"/><path d=\"M 160 340 A 96 96 0 0 1 352 340\" fill=\"none\" stroke=\"%23ffffff\" stroke-width=\"24\" stroke-linecap=\"round\" opacity=\"0.85\"/><path d=\"M 192 340 A 64 64 0 0 1 320 340\" fill=\"none\" stroke=\"%23ffffff\" stroke-width=\"24\" stroke-linecap=\"round\" opacity=\"0.75\"/></g></svg>","sizes":"512x512","type":"image/svg+xml"}]}'>
 
   <style>
     body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #f5f5f7; }
