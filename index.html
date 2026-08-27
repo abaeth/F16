@@ -2,85 +2,62 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   
-  <title>abae</title>
+  <title>แอ๊บแอ้</title>
+
+  <!-- Open Graph สำหรับ Share Sheet และการแสดงผลแชร์ลิงก์ -->
+  <meta property="og:title" content="แอ๊บแอ้">
+  <meta property="og:site_name" content="แอ๊บแอ้">
+  <meta name="title" content="แอ๊บแอ้">
 
   <!-- 📱 บังคับให้เป็น App เต็มจอ (Standalone) บน iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="abae">
-  <meta name="theme-color" content="#f2f2f7">
+  <meta name="apple-mobile-web-app-title" content="แอ๊บแอ้">
+  <meta name="theme-color" content="#f5f5f7">
 
-  <meta property="og:title" content="abae">
-  <meta property="og:site_name" content="abae">
-
-  <!-- 🚀 ดึงไฟล์โลโก้และไฟล์ตั้งค่า PWA -->
+  <!-- 🚀 ดึงไฟล์โลโก้และไฟล์ตั้งค่า PWA (อ้างอิงไฟล์โลโก้ที่คุณอัปโหลดใน GitHub) -->
   <link rel="apple-touch-icon" href="./logo.png">
   <link rel="icon" type="image/png" href="./logo.png">
   <link rel="manifest" href="./manifest.json">
 
   <style>
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0; padding: 0;
-      width: 100vw; height: 100vh;
-      background-color: #f2f2f7;
-      overflow: hidden;
-      font-family: -apple-system, Roboto, sans-serif;
-    }
-    iframe {
-      width: 100% !important;
-      height: 100% !important;
-      border: none !important;
-      display: block !important;
-    }
+    body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #f5f5f7; }
+    iframe { width: 100%; height: 100%; border: none; display: block; }
   </style>
 </head>
 <body>
-
-  <iframe id="app-frame" allow="autoplay; camera; fullscreen"></iframe>
-
+  <iframe id="app-frame" allow="fullscreen"></iframe>
   <script>
-    const GAS_EXEC_URL = "https://script.google.com/macros/s/AKfycby-ApQEa-dgWIjg0KLVhQXV3PNVDk_flR4QeQgQiAenW7xoPe75M_HJhMPdj9gGftp0xg/exec";
+    document.title = "แอ๊บแอ้";
+    setInterval(function() { document.title = "แอ๊บแอ้"; }, 1000);
 
-    // 🔒 ล็อคชื่อ Title บนเบราว์เซอร์
-    document.title = "abae";
-    setInterval(function() {
-      document.title = "abae";
-    }, 1000);
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbyVZp09oHsU62CZvJVBBeEnOLtQrW3t8Ngxe3IFG-T90_AhoM-0UixTUW3dgmBSRdI1/exec"; 
 
-    window.onload = function() {
-      loadApp();
-    };
+    let savedBranch = localStorage.getItem('hub_branch') || '';
+    let savedShop = localStorage.getItem('hub_shop') || '';
+    let savedStaff = localStorage.getItem('hub_staff') || '';
+    let savedReg = localStorage.getItem('hub_reg') || '';
 
-    function loadApp() {
-      let savedBranch = localStorage.getItem("f16_device_branch");
-      let savedStaff = localStorage.getItem("f16_device_staff");
+    let finalUrl = GAS_URL + "?v=" + Date.now();
+    if (savedBranch) finalUrl += "&branch=" + encodeURIComponent(savedBranch);
+    if (savedShop) finalUrl += "&shop=" + encodeURIComponent(savedShop);
+    if (savedStaff) finalUrl += "&staff=" + encodeURIComponent(savedStaff);
+    if (savedReg) finalUrl += "&reg=" + encodeURIComponent(savedReg);
 
-      let targetUrl = GAS_EXEC_URL;
-      let connector = targetUrl.includes('?') ? '&' : '?';
+    document.getElementById('app-frame').src = finalUrl;
 
-      if (savedBranch) {
-        targetUrl += connector + "reg=true&branch=" + encodeURIComponent(savedBranch);
-        if (savedStaff) {
-          targetUrl += "&staff=" + encodeURIComponent(savedStaff);
-        }
-      }
-
-      let cacheConnector = targetUrl.includes('?') ? '&' : '?';
-      document.getElementById("app-frame").src = targetUrl + cacheConnector + "_nocache=" + Date.now();
-    }
-
-    window.addEventListener("message", function(event) {
-      if (event.data && event.data.action) {
-        if (event.data.action === "save_all") {
-          if (event.data.branch) localStorage.setItem("f16_device_branch", event.data.branch);
-          if (event.data.staff) localStorage.setItem("f16_device_staff", event.data.staff);
-        } else if (event.data.action === "logout_staff") {
-          localStorage.removeItem("f16_device_staff");
-          loadApp();
+    window.addEventListener('message', function(event) {
+      if (event.data) {
+        if (event.data.action === 'save_all') {
+          localStorage.setItem('hub_branch', event.data.branch);
+          localStorage.setItem('hub_shop', event.data.shop);
+          localStorage.setItem('hub_staff', event.data.staff);
+          localStorage.setItem('hub_reg', 'true');
+        } else if (event.data.action === 'logout_staff') {
+          localStorage.removeItem('hub_staff');
         }
       }
     });
