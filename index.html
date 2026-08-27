@@ -6,27 +6,17 @@
   
   <title>แอ๊บแอ้</title>
 
-  <!-- 🇹🇭 Open Graph สำหรับ iOS Share Sheet -->
-  <meta property="og:title" content="แอ๊บแอ้">
-  <meta property="og:site_name" content="แอ๊บแอ้">
-  <meta name="title" content="แอ๊บแอ้">
-
-  <!-- 📱 บังคับโหมด Web App เต็มจอ -->
-  <meta name="mobile-web-app-capable" content="yes">
+  <!-- 📱 บังคับให้เป็น App เต็มจอ (Standalone) บน iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  
-  <!-- 🍎 ชื่อบน iOS (iPhone/iPad) ตอน Add to Home Screen -->
   <meta name="apple-mobile-web-app-title" content="แอ๊บแอ้">
   <meta name="theme-color" content="#f2f2f7">
 
-  <!-- 🚀 1. ดึงไฟล์ภาพ PNG ของจริงมาทำโลโก้ Add to Home Screen (ต้องมีไฟล์ logo.png ใน GitHub) -->
-  <link rel="apple-touch-icon" sizes="180x180" href="./logo.png?v=3">
-
-  <!-- 🤖 2. Favicon & Manifest สำหรับเบราว์เซอร์ปกติและ Android -->
-  <link rel="icon" type="image/png" href="./logo.png?v=3">
-  
-  <link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%22%E0%B9%81%E0%B8%AD%E0%B9%8A%E0%B8%9A%E0%B9%81%E0%B8%AD%E0%B9%89%22%2C%22short_name%22%3A%22%E0%B9%81%E0%B8%AD%E0%B9%8A%E0%B8%9A%E0%B9%81%E0%B8%AD%E0%B9%89%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23f2f2f7%22%2C%22theme_color%22%3A%22%23ff007f%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22.%2Flogo.png%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fpng%22%7D%5D%7D">
+  <!-- 🚀 ดึงไฟล์โลโก้และไฟล์ตั้งค่า PWA -->
+  <link rel="apple-touch-icon" href="./logo.png">
+  <link rel="icon" type="image/png" href="./logo.png">
+  <link rel="manifest" href="./manifest.json">
 
   <style>
     * { box-sizing: border-box; }
@@ -47,7 +37,7 @@
 </head>
 <body>
 
-  <iframe id="app-frame" allow="autoplay; camera; focus-without-user-activation"></iframe>
+  <iframe id="app-frame" allow="autoplay; camera; fullscreen"></iframe>
 
   <script>
     const GAS_EXEC_URL = "https://script.google.com/macros/s/AKfycby-ApQEa-dgWIjg0KLVhQXV3PNVDk_flR4QeQgQiAenW7xoPe75M_HJhMPdj9gGftp0xg/exec";
